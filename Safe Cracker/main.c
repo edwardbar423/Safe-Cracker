@@ -17,7 +17,7 @@ bool safeGues(int guess);
 int main(int argc, const char * argv[]) {
     
     printf("You are in a room with no doors and no windows.\nThere is only a safe, the way out is inside.\nCrack the combination and be freed. \n\n\n");
-    printf("The Safe has a keypad with numbers 0-9. You only need four numbers to get the safe to open. Good luck... \n\n\n");
+    printf("The Safe has a keypad with numbers 0-9. You only need four numbers to get the safe to open. Attempt to get the right comnination. Good luck... \n\n\n");
     
     
     int safeCombo[4] = {
@@ -30,10 +30,10 @@ int main(int argc, const char * argv[]) {
     int keyEntr = -1;
     int a = -1;
     
-safeNum();                                                           //Error with my loop
-    while (!safeGues(a)) {                                           //
+safeNum();
+    while (!safeGues(a)) {
         fpurge(stdin);
-        keyEntr = scanf("%d", &a);
+        keyEntr = scanf("%d %d %d %d", &a, &a, &a, &a);
         if (keyEntr != 1 && !safeGues(a)) {
             printf("Please enter a number between 0 and 9\n\n: ");
             a = -1;
