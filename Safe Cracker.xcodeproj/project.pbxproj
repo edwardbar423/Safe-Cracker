@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		49253F091D5BB2BF00F126AC /* Safe Cracker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Safe Cracker"; sourceTree = BUILT_PRODUCTS_DIR; };
-		49253F0C1D5BB2BF00F126AC /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		49253F0C1D5BB2BF00F126AC /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
