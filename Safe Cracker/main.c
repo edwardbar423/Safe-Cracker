@@ -86,10 +86,15 @@ safeNum();
     }
     return 0;
 }
-    bool safeGues(int guess); }
-    return (guess >= 0 && guess < 9);
+    void safeNum() {
+        printf("Please enter a number. (From 0 to 9): "); //Why does this pop up before I've entered the safeCombinations? Because it pulls from safeNum on line 34?
+    }
     
-    return 0;
-}
+    bool safeGues(int guess) {
+        return (guess >= 0 && guess < 9);
+        
+        return 0;
+    }
 
-}
+
+
