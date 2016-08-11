@@ -35,36 +35,37 @@ int main(int argc, const char * argv[]) {
     int c = -1;
     int d = -1;
     
-safeNum();
+    safeNum();
     while (!safeGues(a)) {
         fpurge(stdin);
-            keyEntr = scanf("%d", &a);
-        if (keyEntr != 1 && !safeGues(a)) {
+        keyEntr = scanf("%d", &a);
+            if (keyEntr != 1 && !safeGues(a)) {
             printf("Please enter a number between 0 and 9\n\n: ");
-        a = -1;
+                a = -1;
         }
-        
+    }
     while (!safeGues(b)) {
         fpurge(stdin);
-            keyEntr = scanf("%d", &b);
-        if (keyEntr != 1 && !safeGues(b)) {
+        keyEntr = scanf("%d", &b);
+            if (keyEntr != 1 && !safeGues(b)) {
             printf("Please enter a number between 0 and 9\n\n: ");
-        b = -1;
+                b = -1;
         }
-        
+    }
     while (!safeGues(c)) {
-            fpurge(stdin);
-           keyEntr = scanf("%d", &c);
-        if (keyEntr != 1 && !safeGues(c))
+        fpurge(stdin);
+        keyEntr = scanf("%d", &c);
+            if (keyEntr != 1 && !safeGues(c)) {
             printf("Please enter a number between 0 and 9\n\n: ");
-        c = -1;
+                c = -1;
         }
-        while (!safeGues(d)) {
-            fpurge(stdin);
-            keyEntr = scanf("%d", &d);
-        if (keyEntr != 1 && !safeGues(d))
+    }
+    while (!safeGues(d)) {
+        fpurge(stdin);
+        keyEntr = scanf("%d", &d);
+            if (keyEntr != 1 && !safeGues(d)){
             printf("Please enter a number between 0 and 9\n\n: ");
-        d = -1;
+                d = -1;
         }
     }
    
@@ -95,6 +96,3 @@ safeNum();
         
         return 0;
     }
-
-
-
