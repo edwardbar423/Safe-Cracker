@@ -17,7 +17,13 @@ bool safeGues(int guess);
 
 int main(int argc, const char * argv[]) {
     
+    printf("What is your name?\n\n");
+    fpurge(stdin);
+    char name[50] = "\0";
+    int numberOfItemsScanned = 0;
+    numberOfItemsScanned = scanf("%[^\n]s", name);
     
+    printf("Hello! %s!\n\n", name);
     
     printf("You are in a room with no doors and no windows.\nThere is only a safe, the way out is inside.\nCrack the combination and be freed. \n\n\n");
     printf("The Safe has a keypad with numbers 0-9. You only need four numbers to get the safe to open. Attempt to get the right comnination. Good luck... \n\n\n");
@@ -69,7 +75,6 @@ int main(int argc, const char * argv[]) {
             d = -1;
         }
     }
-    
     
     if(safeCombo[0] == a) {
         printf("First number is Correct!  \n\n");
