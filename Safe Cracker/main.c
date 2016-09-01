@@ -12,16 +12,22 @@
 #include <unistd.h>
 #include <stdbool.h>
 
+void playAgain(void);
 void safeNum(void);
 bool safeGues(int guess);
 
 int main(int argc, const char * argv[]) {
+    playAgain();
+}
+
+void playAgain() {
     
+
     printf("What is your name?\n\n");
     fpurge(stdin);
     char name[50] = "\0";
-    int numberOfItemsScanned = 0;
-    numberOfItemsScanned = scanf("%[^\n]s", name);
+    int nameOfYou = 0;
+    nameOfYou = scanf("%[^\n]s", name);
     
     printf("Hello! %s!\n\n", name);
     
@@ -41,58 +47,81 @@ int main(int argc, const char * argv[]) {
     int b = -1;
     int c = -1;
     int d = -1;
+    int continuePlaying = -1;
     
-    safeNum();
-    while (!safeGues(a)) {
-        fpurge(stdin);
-        keyEntr = scanf("%d", &a);
-        if (keyEntr != 1 && !safeGues(a)) {
-            printf("Please enter a number between 0 and 9\n\n: ");
-            a = -1;
-        }
-    }
-    while (!safeGues(b)) {
-        fpurge(stdin);
-        keyEntr = scanf("%d", &b);
-        if (keyEntr != 1 && !safeGues(b)) {
-            printf("Please enter a number between 0 and 9\n\n: ");
-            b = -1;
-        }
-    }
-    while (!safeGues(c)) {
-        fpurge(stdin);
-        keyEntr = scanf("%d", &c);
-        if (keyEntr != 1 && !safeGues(c)) {
-            printf("Please enter a number between 0 and 9\n\n: ");
-            c = -1;
-        }
-    }
-    while (!safeGues(d)) {
-        fpurge(stdin);
-        keyEntr = scanf("%d", &d);
-        if (keyEntr != 1 && !safeGues(d)){
-            printf("Please enter a number between 0 and 9\n\n: ");
-            d = -1;
-        }
-    }
+    printf("Taking a close look you see that finger prints were used heavily on these numbers... \n%d %d %d %d\n\n\n", safeCombo[0], safeCombo[1], safeCombo[2], safeCombo [3]);
     
-    if(safeCombo[0] == a) {
-        printf("First number is Correct!  \n\n");
+    bool running = true;
+    int numberTimesGuesed = -1;
+    
+    while (running) {
+        
+        
+        safeNum();
+        while (!safeGues(a)) {
+            fpurge(stdin);
+            keyEntr = scanf("%d", &a);
+            if (keyEntr != 1 && !safeGues(a)) {
+                printf("Please enter a number between 0 and 9\n\n: ");
+                a = -1;
+            }
+        }
+        while (!safeGues(b)) {
+            fpurge(stdin);
+            keyEntr = scanf("%d", &b);
+            if (keyEntr != 1 && !safeGues(b)) {
+                printf("Please enter a number between 0 and 9\n\n: ");
+                b = -1;
+            }
+        }
+        while (!safeGues(c)) {
+            fpurge(stdin);
+            keyEntr = scanf("%d", &c);
+            if (keyEntr != 1 && !safeGues(c)) {
+                printf("Please enter a number between 0 and 9\n\n: ");
+                c = -1;
+            }
+        }
+        while (!safeGues(d)) {
+            fpurge(stdin);
+            keyEntr = scanf("%d", &d);
+            if (keyEntr != 1 && !safeGues(d)){
+                printf("Please enter a number between 0 and 9\n\n: ");
+                d = -1;
+            }
+            
+            if(safeCombo[0] == a) {
+                printf("First number is Correct!  \n\n");
+            }
+            if(safeCombo[1] == b) {
+                printf("Second number is Correct!  \n\n");
+            }
+            if(safeCombo[2] == c) {
+                printf("Third number is Correct!  \n\n");
+            }
+            if(safeCombo[3] == d) {
+                printf("All Correct! The safe opens %s! A TJ is found inside.  \n\n", name);
+            }
+            else {
+                printf("BEEP! The correct combo was %d, %d, %d, %d, \n\n\n", safeCombo[0], safeCombo[1], safeCombo[2], safeCombo[3]);
+            }
+            
+            printf("To play again enter 1 to quite enter 2!\n\n\n");
+            scanf("%d", &continuePlaying);
+            
+            
+            if(continuePlaying != 1) {
+                running = false;
+            }
+            else {
+                playAgain();
+            }
+            
+        }
+        
     }
-    if(safeCombo[1] == b) {
-        printf("Second number is Correct!  \n\n");
-    }
-    if(safeCombo[2] == c) {
-        printf("Third number is Correct!  \n\n");
-    }
-    if(safeCombo[3] == d) {
-        printf("Correct! The safe opens, a TJ is found inside.  \n\n");
-    }
-    else {
-        printf("BEEP! The correct combo was %d, %d, %d, %d, \n\n\n", safeCombo[0], safeCombo[1], safeCombo[2], safeCombo[3]);
-        printf("To play again press the -> in the top left hand corner!\n\n\n");
-    }
-    return 0;
+    return ;
+
 }
 void safeNum() {
     printf("Please enter a number. (From 0 to 9): "); //Why does this pop up before I've entered the safeCombinations? Because it pulls from safeNum on line 34?
